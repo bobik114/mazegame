@@ -40,7 +40,7 @@ const Map = () => {
             border: "solid 4px yellow"
         }} >
         {mapBase.map((mapRow, i) => <tr key={i}>{mapRow.map((mapEl, i) => <td key={i}><img alt="#" src={getMapEl(mapEl)} /></td>)}</tr>)}
-            <Player />
+            <Player mapBase={mapBase}/>
         </table>
         
     </>

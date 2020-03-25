@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import useEventListener from '@use-it/event-listener'
 
-const Player = () => {
+const Player = (props) => {
 
     const [position, setPosition] = useState({  //pozycja gracza
         xCurrent: 0,    
         xPrevious: 0,
         yCurrent: 0,
-        yPrevious: 0
+        yPrevious: 0,
+        mapCol: 0,
+        mapRow: 0,
     })
 
     const [facing, setFacing] = useState(0)     //kierunek, w którym zwrócony jest gracz
@@ -41,9 +43,10 @@ const Player = () => {
         if(code.indexOf("Arrow") === -1) return
         
         if(code==="ArrowRight") {
-            if(position.xCurrent+77<=1078) {    //blokada wyjścia za granicę mapy
+            if(position.xCurrent+77<=1078 && props.mapBase[position.mapRow][position.mapCol+1] === 0) {    //blokada wyjścia za granicę mapy
                 setPosition(prevState => ({
                     ...position,
+                    mapCol: prevState.mapCol + 1,
                     xCurrent: prevState.xCurrent+77,
                     xPrevious: prevState.xCurrent
                 }))
@@ -51,9 +54,10 @@ const Player = () => {
             setFacing(direction.right)
     }
         if(code==="ArrowLeft") {
-            if(position.xCurrent-77>=0) {
+            if(position.xCurrent-77>=0 && props.mapBase[position.mapRow][position.mapCol-1] === 0) {
                 setPosition(prevState => ({
                     ...position,
+                    mapCol: prevState.mapCol - 1,
                     xCurrent: prevState.xCurrent-77,
                     xPrevious: prevState.xCurrent
                 }))
@@ -61,9 +65,10 @@ const Player = () => {
             setFacing(direction.left)
         }
         if(code==="ArrowDown") {            
-            if(position.yCurrent+77<=693 ) {
+            if(position.yCurrent+77<=693 && props.mapBase[position.mapRow+1][position.mapCol] === 0) {
                 setPosition(prevState => ({
                     ...position,
+                    mapRow: prevState.mapRow + 1,
                     yCurrent: prevState.yCurrent+77,
                     yPrevious: prevState.yCurrent
                 }))
@@ -71,9 +76,10 @@ const Player = () => {
             setFacing(direction.down)
         }
         if(code==="ArrowUp") {
-            if(position.yCurrent-77>=0) {
+            if(position.yCurrent-77>=0 && props.mapBase[position.mapRow-1][position.mapCol] === 0) {
                 setPosition(prevState => ({
                     ...position,
+                    mapRow: prevState.mapRow -1,
                     yCurrent: prevState.yCurrent-77,
                     yPrevious: prevState.yCurrent
                 }))
