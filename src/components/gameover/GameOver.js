@@ -1,24 +1,21 @@
 import React from 'react';
 import './style.scss';
-import { Button } from 'react-bootstrap';
 
-const Menu = (props) => {
+const GameOver = (props) => {
     const startGame = () => { 
-        props.gameFunctions.isStartClicked();
+        props.gameFunctions.isStartClicked()
     }
-
-
 
     return <>
     <div className="menu-card">
         <div className="container">
-            <h1>I want to play a game</h1>
+            <h1>You have lost!</h1>
             <img className="saw" src="./assets/chainsaw.png" alt="#"/>
         </div>
-        <button onClick={startGame}>START GAME</button>
+        <button onClick={startGame}>PLAY AGAIN</button>
     </div>
     </>
 
 }
 
-export default Menu;
+export default GameOver;

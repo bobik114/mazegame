@@ -36,7 +36,27 @@ const Player = (props) => {
     }, 80)
     
     if(props.mapBase[position.mapRow][position.mapCol] === 4) {
-        props.gameOver()
+        props.levelWon();
+        setPosition({
+            xCurrent: 0,    
+            xPrevious: 0,
+            yCurrent: 0,
+            yPrevious: 0,
+            mapCol: 0,
+            mapRow: 0,
+        })
+    }
+
+    if(props.mapBase[position.mapRow][position.mapCol] === 3) {
+        props.gameFunctions.isDead();
+        setPosition({
+            xCurrent: 0,    
+            xPrevious: 0,
+            yCurrent: 0,
+            yPrevious: 0,
+            mapCol: 0,
+            mapRow: 0,
+        })
     }
 
     return () => clearInterval(stepInterval)
