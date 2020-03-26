@@ -1,0 +1,56 @@
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
+@mixin step2v2( $width, $color, $bgcolor ) {
+    box-shadow:
+      $width 0 $bgcolor,
+      -$width 0 $bgcolor,
+      0 (-$width) $bgcolor,
+      0 $width $bgcolor,
+      2*$width 0 $color,
+      -2*$width 0 $color,
+      0 (-2*$width) $color,
+      0 2*$width $color, 
+      0 0 0 $width $color;
+  }
+
+body {
+    background: url("../menu/wall.png");
+}
+
+.menu-card {
+    margin: 300px auto;
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Press start 2P";
+    font-weight: 700;
+    @include step2v2( 6px, #555, white );
+    background-color: #ddd;
+}
+
+.container {
+    display: flex;
+}
+
+h1 {
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+button {
+    font: 1em "Press start 2P";
+    background-color: grey;
+    width: 400px;
+    height: 50px;
+    
+}
+
+.saw {
+    width: 150px;
+    height: 150px;
+}

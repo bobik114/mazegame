@@ -34,16 +34,19 @@ const Player = (props) => {
             clearInterval(stepInterval)
         }
     }, 80)
+    
+    if(props.mapBase[position.mapRow][position.mapCol] === 4) {
+        props.gameOver()
+    }
 
     return () => clearInterval(stepInterval)
     })
   
     useEventListener("keydown", ({ code }) => { //przypisanie klawiszy do zmiany pozycji
-        console.log(code);
         if(code.indexOf("Arrow") === -1) return
         
         if(code==="ArrowRight") {
-            if(position.xCurrent+77<=1078 && props.mapBase[position.mapRow][position.mapCol+1] === 0) {    //blokada wyjścia za granicę mapy
+            if(position.xCurrent+77<=1078 && props.mapBase[position.mapRow][position.mapCol+1] !== 1) {    //blokada wyjścia za granicę mapy
                 setPosition(prevState => ({
                     ...position,
                     mapCol: prevState.mapCol + 1,
@@ -54,7 +57,7 @@ const Player = (props) => {
             setFacing(direction.right)
     }
         if(code==="ArrowLeft") {
-            if(position.xCurrent-77>=0 && props.mapBase[position.mapRow][position.mapCol-1] === 0) {
+            if(position.xCurrent-77>=0 && props.mapBase[position.mapRow][position.mapCol-1] !== 1) {
                 setPosition(prevState => ({
                     ...position,
                     mapCol: prevState.mapCol - 1,
@@ -65,7 +68,7 @@ const Player = (props) => {
             setFacing(direction.left)
         }
         if(code==="ArrowDown") {            
-            if(position.yCurrent+77<=693 && props.mapBase[position.mapRow+1][position.mapCol] === 0) {
+            if(position.yCurrent+77<=693 && props.mapBase[position.mapRow+1][position.mapCol] !== 1) {
                 setPosition(prevState => ({
                     ...position,
                     mapRow: prevState.mapRow + 1,
@@ -76,7 +79,7 @@ const Player = (props) => {
             setFacing(direction.down)
         }
         if(code==="ArrowUp") {
-            if(position.yCurrent-77>=0 && props.mapBase[position.mapRow-1][position.mapCol] === 0) {
+            if(position.yCurrent-77>=0 && props.mapBase[position.mapRow-1][position.mapCol] !== 1) {
                 setPosition(prevState => ({
                     ...position,
                     mapRow: prevState.mapRow -1,
@@ -86,8 +89,8 @@ const Player = (props) => {
             }
             setFacing(direction.up)
         }
+        
     })
-
     return <>
     <div id="player" style={{
         position: "absolute",
