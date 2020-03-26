@@ -31,7 +31,7 @@ const Player = (props) => {
         setStep(step + 1*playerSize)
         if(step >= playerSize*8) {
             setStep(0)
-            clearInterval(stepInterval)
+            
         }
     }, 80)
     

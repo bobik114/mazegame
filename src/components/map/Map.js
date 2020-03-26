@@ -22,7 +22,7 @@ const Map = (props) => {
        ],
        [
         [ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0 ],
-        [ 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0 ],
+        [ 0, 0, 0, 1, 0, 3, 0, 0, 0, 1, 0, 1, 0, 0, 0 ],
         [ 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0 ],
         [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0 ],
         [ 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0 ],
@@ -45,27 +45,59 @@ const Map = (props) => {
         [ 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0 ],
        ],
        [
-        [ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0 ],
-        [ 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0 ],
-        [ 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0 ],
-        [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0 ],
-        [ 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0 ],
-        [ 0, 1, 0, 0, 0, 0, 1, 4, 0, 1, 0, 0, 0, 1, 0 ],
-        [ 0, 1, 0, 1, 1, 0, 1, 3, 0, 1, 0, 1, 0, 1, 0 ],
-        [ 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0 ],
-        [ 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0 ],
-        [ 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+        [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
     ]];
 
     const [level, setLevel] = useState(mapBase[0]);
+    
+    
+    let spikesLevel = level;
+    let noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
+    let actualLevel;
+    
+    
+
+    
 
     useEffect(() => {
-        console.log(lvlIndex);
+        console.log(level);
         if(lvlIndex === 3) {
             props.gameFunctions.isWinner();
             lvlIndex = 0;
         }
-    })
+
+        const spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
+
+ 
+            return level === spikesLevel ? setLevel(noSpikesLevel) : setLevel(spikesLevel)
+            actualLevel = level;
+            if(actualLevel == noSpikesLevel) {
+                actualLevel = spikesLevel;
+                setLevel(spikesLevel)
+            }
+            else {
+                actualLevel = noSpikesLevel;
+                return setLevel(noSpikesLevel)
+            }
+
+            console.log("nospikes: ", noSpikesLevel);
+            console.log("spikes: ", spikesLevel);
+            console.log("actual", actualLevel);
+            console.log("level state", level);
+        }, 2000)
+
+        
+
+    }, [])
 
     const levelWon = () => {
         lvlIndex++;
@@ -83,7 +115,9 @@ const Map = (props) => {
         case 3:
             return "./assets/spikes.png";
         case 4:
-            return "./assets/ladder.png"
+            return "./assets/ladder.png";
+        case 6:
+            return "./assets/grass.png";
         default:
             return "./assets/grass.png";
         }
