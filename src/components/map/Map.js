@@ -75,9 +75,10 @@ const Map = (props) => {
             props.gameFunctions.isDead();
             console.log("śmierć");
         }
-
+        
         spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
 
+            
             if(isSpikes === true) {
                 setIsSpikes(false)
                 setLevel(level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data})))
