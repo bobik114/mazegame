@@ -59,8 +59,7 @@ const Map = (props) => {
 
     const [level, setLevel] = useState(mapBase[0]);
     
-    const spikesLevel = level;
-    const noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
+
 
     useEffect(() => {
 
@@ -69,14 +68,19 @@ const Map = (props) => {
             lvlIndex = 0;
         }
 
+        const spikesLevel = level.map((row, i) => row.map((data, j) => {return data === 6 ? 3 : data}));
+        const noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
+
         const spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
 
-            if(level == noSpikesLevel) {
-                setLevel([...spikesLevel])
+
+            if(level == spikesLevel) {
+                setLevel(noSpikesLevel)
             }
-            else if(level == spikesLevel) {
-                setLevel([...noSpikesLevel])
+            else if(level == noSpikesLevel) {
+                setLevel(spikesLevel)
             }
+            
 
             console.log("nospikes: ", noSpikesLevel);
             console.log("spikes: ", spikesLevel);
@@ -105,7 +109,7 @@ const Map = (props) => {
         case 4:
             return "./assets/ladder.png";
         case 6:
-            return "./assets/grass.png";
+            return "./assets/hiddenSpikes.png";
         default:
             return "./assets/grass.png";
         }
