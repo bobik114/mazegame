@@ -73,7 +73,7 @@ const Map = (props) => {
 
         if(timer<1) {                               //sprawdzenie czy gracz wygrał
             props.gameFunctions.isDead();
-            console.log("śmierć");
+            lvlIndex = 0;
         }
         
         spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
@@ -109,6 +109,10 @@ const Map = (props) => {
         setIsSpikes(false)
     }
 
+    const killed = () => {
+        lvlIndex=0;
+    }
+
     const getMapEl = (type) => {
         switch (type) {
         case 0:
@@ -139,7 +143,7 @@ const Map = (props) => {
         }} >
         {level.map((mapRow, i) => <tr key={i}>{mapRow.map((mapEl, i) => <td key={i}><img alt="#" src={getMapEl(mapEl)} /></td>)}</tr>)}
             <div className="timer">{timer}</div>
-            <Player levelWon={levelWon} mapBase={level} gameFunctions={props.gameFunctions}/>
+            <Player killed={killed} levelWon={levelWon} mapBase={level} gameFunctions={props.gameFunctions}/>
         </table>
         <audio autoPlay>
                 <source src="sound/music.ogg" type="audio/ogg"></source>

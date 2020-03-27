@@ -49,6 +49,7 @@ const Player = (props) => {
 
     if(props.mapBase[position.mapRow][position.mapCol] === 3) {
         props.gameFunctions.isDead();
+        props.killed();
         setPosition({
             xCurrent: 0,    
             xPrevious: 0,
