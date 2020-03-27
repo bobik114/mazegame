@@ -31,7 +31,6 @@ const Player = (props) => {
         setStep(step + 1*playerSize)
         if(step >= playerSize*8) {
             setStep(0)
-            
         }
     }, 80)
     
@@ -76,7 +75,7 @@ const Player = (props) => {
                 }))
             }    
             setFacing(direction.right)
-    }
+        }
         if(code==="ArrowLeft") {
             if(position.xCurrent-77>=0 && props.mapBase[position.mapRow][position.mapCol-1] !== 1) {
                 setPosition(prevState => ({

@@ -17,7 +17,7 @@ const GameOver = (props) => {
         <button onClick={startGame}>PLAY AGAIN</button>
     </div>
     <audio autoPlay>
-                <source src="sound/laugh.mp3" type="audio/mpeg"></source>
+        <source src="sound/laugh.mp3" type="audio/mpeg"></source>
     </audio>
     </>
 
