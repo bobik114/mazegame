@@ -1,7 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+
 body{
     background-color: green;
 }
 
 td {
     background: url("./grass.png")
+}
+
+.timer {
+    background: url("./timer.png");
+    position: absolute;
+    z-index: 1;
+    left: -77px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 77px;
+    height: 77px;
+    font-family: "Press start 2P";
+    font-weight: 700;
+    
 }

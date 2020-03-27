@@ -4,6 +4,7 @@ import './style.scss';
 import Player from '../player/Player'
 
 let lvlIndex = 0;
+let spikesInterval;
 
 const Map = (props) => {
 
@@ -58,42 +59,58 @@ const Map = (props) => {
     ]];
 
     const [level, setLevel] = useState(mapBase[0]);
+    const [timer, setTimer] = useState(30);
+    const [isSpikes, setIsSpikes] = useState(true);
     
 
 
     useEffect(() => {
+
+
+        clearInterval(spikesInterval)
 
         if(lvlIndex === 3) {
             props.gameFunctions.isWinner();
             lvlIndex = 0;
         }
 
-        const spikesLevel = level.map((row, i) => row.map((data, j) => {return data === 6 ? 3 : data}));
-        const noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
+        spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
 
-        const spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
-
-
-            if(level == spikesLevel) {
-                setLevel(noSpikesLevel)
+            if(isSpikes === true) {
+                setIsSpikes(false)
+                setLevel(level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data})))
+                
             }
-            else if(level == noSpikesLevel) {
-                setLevel(spikesLevel)
+            else if(isSpikes === false) {
+                setLevel(level.map((row, i) => row.map((data, j) => {return data === 6 ? 3 : data})))
+                setIsSpikes(true)
             }
-            
 
-            console.log("nospikes: ", noSpikesLevel);
-            console.log("spikes: ", spikesLevel);
-            console.log("level state", level);
+            console.log("isSpikes", isSpikes);
         }, 2000)
 
         
+        
+    }, [isSpikes])
 
+    useEffect(() => {
+        const timerInterval = setInterval(() => {
+
+            setTimer(prevState => prevState - 1);
+        }, 1000)
+
+        if(lvlIndex===3) {
+            props.gameFunctions.isWinner();
+        }
+    
     }, [])
 
     const levelWon = () => {
         lvlIndex++;
         setLevel(mapBase[lvlIndex]);
+        setTimer(30);
+        setIsSpikes(false)
+        
     }
 
     const getMapEl = (type) => {
@@ -115,6 +132,7 @@ const Map = (props) => {
         }
     };
     
+    
     return <>
         <table style={{
             position: "relative",
@@ -125,6 +143,7 @@ const Map = (props) => {
             
         }} >
         {level.map((mapRow, i) => <tr key={i}>{mapRow.map((mapEl, i) => <td key={i}><img alt="#" src={getMapEl(mapEl)} /></td>)}</tr>)}
+            <div className="timer">{timer}</div>
             <Player levelWon={levelWon} mapBase={level} gameFunctions={props.gameFunctions}/>
         </table>
         
