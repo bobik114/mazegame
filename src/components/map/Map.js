@@ -59,17 +59,11 @@ const Map = (props) => {
 
     const [level, setLevel] = useState(mapBase[0]);
     
-    
-    let spikesLevel = level;
-    let noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
-    let actualLevel;
-    
-    
-
-    
+    const spikesLevel = level;
+    const noSpikesLevel = level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data}));
 
     useEffect(() => {
-        console.log(level);
+
         if(lvlIndex === 3) {
             props.gameFunctions.isWinner();
             lvlIndex = 0;
@@ -77,21 +71,15 @@ const Map = (props) => {
 
         const spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
 
- 
-            return level === spikesLevel ? setLevel(noSpikesLevel) : setLevel(spikesLevel)
-            actualLevel = level;
-            if(actualLevel == noSpikesLevel) {
-                actualLevel = spikesLevel;
-                setLevel(spikesLevel)
+            if(level == noSpikesLevel) {
+                setLevel([...spikesLevel])
             }
-            else {
-                actualLevel = noSpikesLevel;
-                return setLevel(noSpikesLevel)
+            else if(level == spikesLevel) {
+                setLevel([...noSpikesLevel])
             }
 
             console.log("nospikes: ", noSpikesLevel);
             console.log("spikes: ", spikesLevel);
-            console.log("actual", actualLevel);
             console.log("level state", level);
         }, 2000)
 
