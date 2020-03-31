@@ -1,7 +1,9 @@
-Description
-This is a hobby project to learn and use React.
+<div align=center>
+  <h1>Maze Game</h1>
 
-Installation
+<h4>This is a hobby project to learn and use React.<h4>
+</div>
+<h2>Installation<h2>
 # Clone the repository
 $ git clone https://github.com/bobik114/myGame
 
