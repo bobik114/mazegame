@@ -16,7 +16,7 @@ $ npm start
 
 <h4>Opens a browser tab at http://localhost:3000/</h4>
 
-<h1>Game screenshot</h1>
+<h3>Game screenshot</h3>
 <img src="./screen.jpg">
 
 <p>This project was created for fun to attempt to build an RPG game with React. </p>
