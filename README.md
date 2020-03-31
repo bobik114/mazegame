@@ -14,7 +14,7 @@ $ git clone https://github.com/bobik114/myGame
 <h3>Start the app</h3>
 $ npm start
 
-<h4>Opens a browser tab at http://localhost:3000/<h4>
+<h4>Opens a browser tab at http://localhost:3000/</h4>
 
 <p>This project was created for fun to attempt to build an RPG game with React. </p>
 
