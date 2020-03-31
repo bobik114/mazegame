@@ -15,7 +15,7 @@ const Winner = (props) => {
         <button onClick={startGame}>PLAY AGAIN</button>
     </div>
     <audio autoPlay>
-        <source src="sound/applause.mp3" type="audio/mpeg"></source>
+                <source src="sound/applause.mp3" type="audio/mpeg"></source>
     </audio>
     </>
 

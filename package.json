@@ -1,0 +1,20 @@
+{
+  "name": "myGame",
+  "version": "1.0.0",
+  "description": "<div align=center>   <h1>Maze Game</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobik114/myGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobik114/myGame/issues"
+  },
+  "homepage": "https://github.com/bobik114/myGame#readme"
+}

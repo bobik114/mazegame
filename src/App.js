@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 
+
 import Map from './components/map/Map';
 import Menu from './components/menu/Menu';
 import GameOver from './components/gameover/GameOver';
@@ -11,6 +12,7 @@ const App = () => {
   const [playGame, setPlayGame] = useState(true);
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(false);
+
 
   const gameFunctions = {
     isDead: function() {
@@ -28,6 +30,8 @@ const App = () => {
     }
   }
 
+
+
   if(startMenu===true) {
     return <Menu gameFunctions={gameFunctions}/>
   }
@@ -40,6 +44,8 @@ const App = () => {
   else if(winner===true) {
     return <Winner gameFunctions={gameFunctions}/>
   }
+  
+
 }
 
 export default App;
