@@ -1,20 +1,20 @@
 <div align=center>
   <h1>Maze Game</h1>
 
-<p>This is a hobby project to learn and use React.</p>
+<p>This is a hobby project to excercise with React.</p>
 </div>
 <h2>Installation</h2>
-# Clone the repository
+<h3>Clone the repository</h3>
 $ git clone https://github.com/bobik114/myGame
 
-# Install dependencies
+<h3>Install dependencies</h3>
 <p>$ cd myGame</p>
 <p>$ npm install</p>
 
-# Start the app
+<h3>Start the app</h3>
 $ npm start
 
-# Opens a browser tab at http://localhost:3000/
+<h3>Opens a browser tab at http://localhost:3000/<h3>
 
 This project was created for fun to attempt to build an RPG game with React. 
 
