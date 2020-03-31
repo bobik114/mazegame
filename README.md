@@ -1,7 +1,7 @@
 <div align=center>
   <h1>Maze Game</h1>
 
-<p>This is a hobby project to excercise with React.</p>
+<p>This is a hobby project I made to excercise with React.</p>
 </div>
 <h2>Installation</h2>
 <h3>Clone the repository</h3>
