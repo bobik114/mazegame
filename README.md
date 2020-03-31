@@ -1,15 +1,15 @@
 <div align=center>
   <h1>Maze Game</h1>
 
-<h4>This is a hobby project to learn and use React.<h4>
+<p>This is a hobby project to learn and use React.</p>
 </div>
-<h2>Installation<h2>
+<h2>Installation</h2>
 # Clone the repository
 $ git clone https://github.com/bobik114/myGame
 
 # Install dependencies
-$ cd myGame
-$ npm install
+<p>$ cd myGame</p>
+<p>$ npm install</p>
 
 # Start the app
 $ npm start
