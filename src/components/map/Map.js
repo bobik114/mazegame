@@ -10,7 +10,7 @@ const Map = (props) => {
 
     const mapBase = [
         [
-        [ 0, 1, 0, 3, 0, 0, 0, 4, 1, 1, 0, 1, 0, 3, 0 ],
+        [ 0, 1, 0, 3, 0, 0, 0, 1, 1, 1, 0, 1, 0, 3, 0 ],
         [ 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 3, 0 ],
         [ 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0 ],
         [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 3, 0, 1, 0, 1, 0 ],
@@ -59,44 +59,39 @@ const Map = (props) => {
     ]];
 
     const [level, setLevel] = useState(mapBase[0]);
-    const [timer, setTimer] = useState(20);
+    const [timer, setTimer] = useState(25);
     const [isSpikes, setIsSpikes] = useState(true);
     
     useEffect(() => {
 
         clearInterval(spikesInterval)
 
-        if(lvlIndex === 3) {                       //sprawdzenie czy gracz wygrał
+        if(lvlIndex === 3) {                       
             props.gameFunctions.isWinner();
             lvlIndex = 0;
         }
 
-        if(timer<1) {                               //sprawdzenie czy gracz wygrał
+        if(timer<1) {                               
             props.gameFunctions.isDead();
             lvlIndex = 0;
         }
         
-        spikesInterval = setInterval(() => {      //interwal pojawiania się i znikania kolców
+        spikesInterval = setInterval(() => {      
 
-            
             if(isSpikes === true) {
                 setIsSpikes(false)
                 setLevel(level.map((row, i) => row.map((data, j) => {return data === 3 ? 6 : data})))
                 
             }
             else if(isSpikes === false) {
-                setLevel(level.map((row, i) => row.map((data, j) => {return data === 6 ? 3 : data})))
                 setIsSpikes(true)
+                setLevel(level.map((row, i) => row.map((data, j) => {return data === 6 ? 3 : data})))
             }
-
-            console.log("isSpikes", isSpikes);
         }, 1000)
-        
-    }, [isSpikes])
+    }, [level])
 
     useEffect(() => {
         const timerInterval = setInterval(() => {
-
             setTimer(prevState => prevState - 1);
         }, 1000)
     
@@ -105,8 +100,7 @@ const Map = (props) => {
     const levelWon = () => {
         lvlIndex++;
         setLevel(mapBase[lvlIndex]);
-        setTimer(20);
-        setIsSpikes(false)
+        setTimer(25);
     }
 
     const killed = () => {
@@ -148,8 +142,7 @@ const Map = (props) => {
         <audio autoPlay>
                 <source src="sound/music.ogg" type="audio/ogg"></source>
         </audio>
-        
     </>
 }
 
-export default Map
+export default Map;
