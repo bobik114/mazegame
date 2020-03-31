@@ -16,6 +16,9 @@ $ npm start
 
 <h4>Opens a browser tab at http://localhost:3000/</h4>
 
+<h1>Game screenshot</h1>
+<img src="./screen.jpg">
+
 <p>This project was created for fun to attempt to build an RPG game with React. </p>
 
 <p>The player assests were made with "RPG Character Builder" which is avaible on Steam for free https://store.steampowered.com/app/1154430/RPG_Character_Builder/</p>
