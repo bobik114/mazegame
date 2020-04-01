@@ -19,7 +19,7 @@ $ npm start
 <h3>Game screenshot</h3>
 <img src="./screen.jpg">
 
-<p>This project was created for fun to attempt to build an RPG game with React. </p>
+<p>This project was created for fun to attempt to build a game with React. </p>
 
 <p>The player assests were made with "RPG Character Builder" which is avaible on Steam for free https://store.steampowered.com/app/1154430/RPG_Character_Builder/</p>
 
