@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f2b75d5925fb010990d8e5ffbbe6de96",
+    "revision": "eda78127f97cf4ac0798a8acda3a6ece",
     "url": "/mazegame/index.html"
   },
   {
-    "revision": "3c24b13adcba8a698e77",
+    "revision": "db621249f3382f470fc5",
     "url": "/mazegame/static/css/main.1ec00e63.chunk.css"
   },
   {
-    "revision": "29dbf9a98c58009377ab",
-    "url": "/mazegame/static/js/2.91ca3676.chunk.js"
+    "revision": "c11a6404283e4c914ed8",
+    "url": "/mazegame/static/js/2.532058c9.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/mazegame/static/js/2.91ca3676.chunk.js.LICENSE.txt"
+    "url": "/mazegame/static/js/2.532058c9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c24b13adcba8a698e77",
-    "url": "/mazegame/static/js/main.b33247fb.chunk.js"
+    "revision": "db621249f3382f470fc5",
+    "url": "/mazegame/static/js/main.c04c6728.chunk.js"
   },
   {
-    "revision": "21b738d2b267a90dc7fc",
-    "url": "/mazegame/static/js/runtime-main.dbf6bce0.js"
+    "revision": "1e2d446ecffe2b2898d4",
+    "url": "/mazegame/static/js/runtime-main.1c32eff1.js"
   },
   {
     "revision": "40786da7c78ca48dc954f0683977acff",
