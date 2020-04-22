@@ -1,6 +1,6 @@
 {
   "homepage": "http://bobik114.github.io/mazegame",
-  "name": "MazeGame",
+  "name": "mazegame",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "redux-devtools": "^3.5.0"
   }
 }
