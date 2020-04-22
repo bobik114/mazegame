@@ -1,30 +1,30 @@
-import React from 'react';
-import {useState} from 'react';
+import React, {useState} from 'react'
+import './scss/main.scss'
 
-import Map from './components/map/Map';
-import Menu from './components/menu/Menu';
-import GameOver from './components/gameover/GameOver';
-import Winner from './components/winner/Winner';
+import Map from './components/Map/Map'
+import Menu from './components/Menu/Menu'
+import GameOver from './components/GameOver/GameOver'
+import Winner from './components/Winner/Winner'
 
 const App = () => {
-  const [startMenu, setStartMenu] = useState(true);
-  const [playGame, setPlayGame] = useState(true);
-  const [gameOver, setGameOver] = useState(false);
-  const [winner, setWinner] = useState(false);
+  const [startMenu, setStartMenu] = useState(true)
+  const [playGame, setPlayGame] = useState(true)
+  const [gameOver, setGameOver] = useState(false)
+  const [winner, setWinner] = useState(false)
 
   const gameFunctions = {
     isDead: function() {
-      setGameOver(true);
-      setPlayGame(false);
+      setGameOver(true)
+      setPlayGame(false)
     },
     isWinner: function() {
-      setWinner(true);
-      setPlayGame(false);
+      setWinner(true)
+      setPlayGame(false)
     },
     isStartClicked: function() {
-      setStartMenu(false);
-      setPlayGame(true);
-      setGameOver(false);
+      setStartMenu(false)
+      setPlayGame(true)
+      setGameOver(false)
     }
   }
 
@@ -42,4 +42,4 @@ const App = () => {
   }
 }
 
-export default App;
+export default App

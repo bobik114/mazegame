@@ -5,11 +5,11 @@ body{
 }
 
 td {
-    background: url("./grass.png")
+    background: url('../../assets/grass.png')
 }
 
 .timer {
-    background: url("./timer.png");
+    background: url('../../assets/timer.png');
     position: absolute;
     z-index: 1;
     left: -77px;

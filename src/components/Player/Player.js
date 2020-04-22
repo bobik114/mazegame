@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import useEventListener from '@use-it/event-listener'
+import playerImg from '../../assets/player.png'
 
 const Player = (props) => {
 
@@ -34,7 +35,7 @@ const Player = (props) => {
         }
     }, 80)
     
-    if(props.mapBase[position.mapRow][position.mapCol] === 4) {
+    if(props.mapBase[position.mapRow][position.mapCol] === 3) {
         props.levelWon();
         setPosition({
             xCurrent: 0,    
@@ -46,7 +47,7 @@ const Player = (props) => {
         })
     }
 
-    if(props.mapBase[position.mapRow][position.mapCol] === 3) {
+    if(props.mapBase[position.mapRow][position.mapCol] === 2) {
         props.gameFunctions.isDead();
         props.killed();
         setPosition({
@@ -118,7 +119,7 @@ const Player = (props) => {
         height: 77,
         left: position.xCurrent,
         top: position.yCurrent,
-        background: `url(assets/player.png) -${step}px -${facing}px`
+        background: `url(${playerImg}) -${step}px -${facing}px`
     }}></div>
     </>
 }
